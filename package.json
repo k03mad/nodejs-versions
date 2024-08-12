@@ -1,0 +1,44 @@
+{
+  "name": "@k03mad/nodejs-versions",
+  "version": "1.0.1",
+  "description": "Get NodeJS versions",
+  "maintainers": [
+    "Kirill Molchanov <k03.mad@gmail.com"
+  ],
+  "bin": {
+    "nodever": "app/cli.js"
+  },
+  "main": "app/api.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k03mad/nodejs-versions.git"
+  },
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@k03mad/request": "6.1.0",
+    "@k03mad/simple-log": "2.3.0",
+    "chalk": "5.3.0",
+    "jsdom": "24.1.1",
+    "table": "6.8.2"
+  },
+  "devDependencies": {
+    "@k03mad/eslint-config": "23.0.0",
+    "chai": "5.1.1",
+    "eslint": "8.57.0",
+    "husky": "9.1.4",
+    "npm-run-all": "4.1.5"
+  },
+  "scripts": {
+    "lint": "npm run lint:eslint",
+    "lint:eslint": "eslint ./ --cache",
+    "test": "node --test tests/*.js",
+    "clean": "rm -rf ./node_modules .eslintcache || true",
+    "setup": "npm run clean && npm run setup:pnpm",
+    "setup:pnpm": "npm i pnpm -g && pnpm i",
+    "prepare": "husky || true"
+  }
+}
