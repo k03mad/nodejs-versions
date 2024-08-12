@@ -35,10 +35,12 @@ const versions = isArgAll
     : await api.getNodeJsMajorVersions();
 
 const formattedTable = table(
-    versions.map(({version, date}) => [
-        green(version),
-        dim(date),
-    ]),
+    versions
+        .reverse()
+        .map(({version, date}) => [
+            green(version),
+            dim(date),
+        ]),
 );
 
 log(formattedTable);
