@@ -45,6 +45,8 @@ const versions = isArgAll
 if (isArgJson) {
     log(JSON.stringify(versions));
 } else {
+    const currentYear = new Date().getFullYear();
+
     const header = [
         'nodejs',
         'date',
@@ -62,7 +64,7 @@ if (isArgJson) {
             .reverse()
             .map(elem => [
                 elem.version ? green(elem.version) : '',
-                elem.date || '',
+                elem.date?.startsWith(currentYear) ? elem.date : dim(elem.date || ''),
                 elem.lts ? magenta(elem.lts) : '',
                 elem.npm ? dim(elem.npm) : '',
                 elem.v8 ? dim(elem.v8) : '',
