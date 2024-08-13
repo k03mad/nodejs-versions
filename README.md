@@ -37,8 +37,8 @@ import {
     getNodeJsMajorVersions,
 } from '@k03mad/nodejs-versions';
 
-const majorVersions = await getNodeJsMajorVersions();
 const allVersions = await getNodeJsAllVersions();
+const majorVersions = await getNodeJsMajorVersions();
 
 // [
 //   {
