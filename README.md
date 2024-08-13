@@ -66,7 +66,9 @@ const majorVersions = await getNodeJsMajorVersions();
 //     openssl: '3.0.13+quic',
 //     modules: '127',
 //     lts: false,
-//     security: false
+//     security: false,
+//     versionRaw: '22.6.0',
+//     url: 'https://nodejs.org/dist/v22.6.0/
 //   },
 //   {
 //     version: 'v21.7.3',

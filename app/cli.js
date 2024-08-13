@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 import {log} from '@k03mad/simple-log';
 import chalk from 'chalk';
 import {table} from 'table';
@@ -63,14 +62,14 @@ if (isArgJson) {
         ...versions
             .reverse()
             .map(elem => [
-                elem.version ? green(elem.version) : '',
+                green(elem.extra?.versionRaw || ''),
                 elem.date?.startsWith(currentYear) ? elem.date : dim(elem.date || ''),
-                elem.lts ? magenta(elem.lts) : '',
-                elem.npm ? dim(elem.npm) : '',
-                elem.v8 ? dim(elem.v8) : '',
-                elem.uv ? dim(elem.uv) : '',
-                elem.zlib ? dim(elem.zlib) : '',
-                elem.openssl ? dim(elem.openssl) : '',
+                magenta(elem.lts || ''),
+                dim(elem.npm || ''),
+                dim(elem.v8 || ''),
+                dim(elem.uv || ''),
+                dim(elem.zlib || ''),
+                dim(elem.openssl || ''),
             ]),
         header,
     ];
