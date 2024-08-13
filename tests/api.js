@@ -10,19 +10,8 @@ describe('api', () => {
     let allVersions, majorVersions;
 
     before(async () => {
-        // cache
-        majorVersions = await getNodeJsMajorVersions();
         allVersions = await getNodeJsAllVersions();
-    });
-
-    describe('major', () => {
-        OUTPUT_MAJOR_INCLUDES.forEach(elem => {
-            it(Object.values(elem).join(), () => expect(majorVersions).to.deep.include(elem));
-        });
-
-        OUTPUT_ALL_INCLUDES.forEach(elem => {
-            it(Object.values(elem).join(), () => expect(majorVersions).not.to.deep.include(elem));
-        });
+        majorVersions = await getNodeJsMajorVersions();
     });
 
     describe('all', () => {
@@ -32,6 +21,16 @@ describe('api', () => {
 
         OUTPUT_ALL_INCLUDES.forEach(elem => {
             it(Object.values(elem).join(), () => expect(allVersions).to.deep.include(elem));
+        });
+    });
+
+    describe('major', () => {
+        OUTPUT_MAJOR_INCLUDES.forEach(elem => {
+            it(Object.values(elem).join(), () => expect(majorVersions).to.deep.include(elem));
+        });
+
+        OUTPUT_ALL_INCLUDES.forEach(elem => {
+            it(Object.values(elem).join(), () => expect(majorVersions).not.to.deep.include(elem));
         });
     });
 });

@@ -9,60 +9,63 @@ import {OUTPUT_ALL_INCLUDES, OUTPUT_MAJOR_INCLUDES} from './utils/test-data.js';
 const cliFile = process.env.npm_package_bin_nodever;
 const exec = promisify(cp.exec);
 
+const ALL_ARGS = [
+    '-a',
+    '--all',
+    '-a -j',
+    '--all --json',
+    '-a -o',
+    '--all --object',
+];
+
+const MAJOR_ARGS = [
+    '-j',
+    '--json',
+    '-o',
+    '--object',
+];
+
 describe('cli', () => {
-    let stdoutAllFullArg, stdoutAllShortArg, stdoutDefault;
+    let outputAllArgs, outputMajorArgs;
 
     before(async () => {
-        // cache
-        ({stdout: stdoutDefault} = await exec(cliFile));
-
         [
-            {stdout: stdoutAllFullArg},
-            {stdout: stdoutAllShortArg},
+            outputAllArgs,
+            outputMajorArgs,
         ] = await Promise.all([
-            exec(`${cliFile} --all`),
-            exec(`${cliFile} -a`),
+            Promise.all(ALL_ARGS.map(elem => exec(`${cliFile} ${elem}`))),
+            Promise.all(MAJOR_ARGS.map(elem => exec(`${cliFile} ${elem}`))),
         ]);
     });
 
-    describe('major', () => {
-        OUTPUT_MAJOR_INCLUDES.forEach(elem => {
-            Object.values(elem).forEach(data => {
-                it(data, () => expect(stdoutDefault).to.includes(data));
+    ALL_ARGS.forEach((arg, i) => {
+        describe(arg, () => {
+            OUTPUT_MAJOR_INCLUDES.forEach(elem => {
+                Object.values(elem).forEach(data => {
+                    it(data, () => expect(outputAllArgs[i].stdout).to.include(data));
+                });
             });
-        });
 
-        OUTPUT_ALL_INCLUDES.forEach(elem => {
-            Object.values(elem).forEach(data => {
-                it(data, () => expect(stdoutDefault).not.to.includes(data));
-            });
-        });
-    });
-
-    describe('all full arg', () => {
-        OUTPUT_MAJOR_INCLUDES.forEach(elem => {
-            Object.values(elem).forEach(data => {
-                it(data, () => expect(stdoutAllFullArg).to.includes(data));
-            });
-        });
-
-        OUTPUT_ALL_INCLUDES.forEach(elem => {
-            Object.values(elem).forEach(data => {
-                it(data, () => expect(stdoutAllFullArg).to.includes(data));
+            OUTPUT_ALL_INCLUDES.forEach(elem => {
+                Object.values(elem).forEach(data => {
+                    it(data, () => expect(outputAllArgs[i].stdout).to.include(data));
+                });
             });
         });
     });
 
-    describe('all short arg', () => {
-        OUTPUT_MAJOR_INCLUDES.forEach(elem => {
-            Object.values(elem).forEach(data => {
-                it(data, () => expect(stdoutAllShortArg).to.includes(data));
+    MAJOR_ARGS.forEach((arg, i) => {
+        describe(arg, () => {
+            OUTPUT_MAJOR_INCLUDES.forEach(elem => {
+                Object.values(elem).forEach(data => {
+                    it(data, () => expect(outputMajorArgs[i].stdout).to.include(data));
+                });
             });
-        });
 
-        OUTPUT_ALL_INCLUDES.forEach(elem => {
-            Object.values(elem).forEach(data => {
-                it(data, () => expect(stdoutAllShortArg).to.includes(data));
+            OUTPUT_ALL_INCLUDES.forEach(elem => {
+                Object.values(elem).forEach(data => {
+                    it(data, () => expect(outputMajorArgs[i].stdout).not.to.include(data));
+                });
             });
         });
     });
