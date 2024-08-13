@@ -67,8 +67,10 @@ const majorVersions = await getNodeJsMajorVersions();
 //     modules: '127',
 //     lts: false,
 //     security: false,
-//     versionRaw: '22.6.0',
-//     url: 'https://nodejs.org/dist/v22.6.0/
+//     extra: {
+//         versionRaw: '22.6.0',
+//         url: 'https://nodejs.org/dist/v22.6.0/
+//     }
 //   },
 //   {
 //     version: 'v21.7.3',
