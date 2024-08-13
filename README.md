@@ -1,5 +1,7 @@
 # Get NodeJS versions
 
+![screenshot](https://github.com/k03mad/nodejs-versions/blob/master/screenshot.png?raw=true)
+
 ## CLI
 
 ```bash
