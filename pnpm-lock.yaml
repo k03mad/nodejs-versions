@@ -12,8 +12,8 @@ importers:
         specifier: 7.0.0
         version: 7.0.0
       '@k03mad/simple-log':
-        specifier: 5.0.0
-        version: 5.0.0
+        specifier: 5.1.0
+        version: 5.1.0
       chalk:
         specifier: 5.3.0
         version: 5.3.0
@@ -115,12 +115,12 @@ packages:
     resolution: {integrity: sha512-IFs5o9kFVdhm2EBgfdsAFKeERIqhXe0qDPq9uEFPCK/2BnQw/GgPtzxMsb/2CihD11EVzFPyy2cEluuWcxy2jA==}
     engines: {node: '>=22'}
 
-  '@k03mad/simple-date@4.0.0':
-    resolution: {integrity: sha512-yngBMsp5zicI1Q+oPErNqdEUCCS3l5LRdtWfLhr4WUp9PAeU4TNBbp1udQd2revr9GOk/17W/d5JtbmptkBzrg==}
+  '@k03mad/simple-date@4.1.0':
+    resolution: {integrity: sha512-asGjWfxYwSNawN6j+jtBu/8ah+Gj+PlJC5U1rPM+QSPFzrs56tZzi6GaggtjbNfwNPC+hcmBqRSynKxkYFNetw==}
     engines: {node: '>=22'}
 
-  '@k03mad/simple-log@5.0.0':
-    resolution: {integrity: sha512-jp2jrRX+tXb3Nb2v4v1VSrAkBBlMPuWb5igO52RPWckdmSvcfAQ4MuIrrotuW+hxnqaOB2nZ8F90G3owR4aXKA==}
+  '@k03mad/simple-log@5.1.0':
+    resolution: {integrity: sha512-O/RTIL2W4mS5ubloZ4Ds+4DpB/oWqqaxHjCTEqwEF8/q4Zukey6ppnYzUkDPLSoM2jDMuJX0OFVAfvYCdShJFg==}
     engines: {node: '>=22'}
 
   '@nodelib/fs.scandir@2.1.5':
@@ -1189,11 +1189,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@k03mad/simple-date@4.0.0': {}
+  '@k03mad/simple-date@4.1.0': {}
 
-  '@k03mad/simple-log@5.0.0':
+  '@k03mad/simple-log@5.1.0':
     dependencies:
-      '@k03mad/simple-date': 4.0.0
+      '@k03mad/simple-date': 4.1.0
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
