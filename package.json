@@ -1,6 +1,6 @@
 {
   "name": "@k03mad/nodejs-versions",
-  "version": "3.3.0",
+  "version": "3.3.1",
   "description": "Get NodeJS versions",
   "maintainers": [
     "Kirill Molchanov <k03.mad@gmail.com"
@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@k03mad/request": "7.6.2",
-    "@k03mad/simple-log": "5.1.0",
+    "@k03mad/simple-log": "5.2.0",
     "chalk": "5.4.1",
     "table": "6.9.0"
   },
