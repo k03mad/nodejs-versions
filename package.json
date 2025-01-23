@@ -1,6 +1,6 @@
 {
   "name": "@k03mad/nodejs-versions",
-  "version": "3.3.1",
+  "version": "3.4.0",
   "description": "Get NodeJS versions",
   "maintainers": [
     "Kirill Molchanov <k03.mad@gmail.com"
@@ -19,14 +19,14 @@
     "node": ">=22"
   },
   "dependencies": {
-    "@k03mad/request": "7.6.2",
-    "@k03mad/simple-log": "5.2.0",
+    "@k03mad/request": "7.7.0",
+    "@k03mad/simple-log": "5.2.1",
     "chalk": "5.4.1",
     "table": "6.9.0"
   },
   "devDependencies": {
-    "@k03mad/eslint-config": "28.3.0",
-    "eslint": "9.17.0",
+    "@k03mad/eslint-config": "28.4.0",
+    "eslint": "9.18.0",
     "husky": "9.1.7"
   },
   "scripts": {
