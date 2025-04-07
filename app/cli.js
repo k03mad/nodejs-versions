@@ -7,11 +7,15 @@ import * as api from './api.js';
 
 const {green, dim, magenta, bold} = chalk;
 
-const args = new Set(process.argv.slice(2));
+const checkArgsIncludes = flags => process.argv.slice(2)
+    .some(arg => flags.some(flag => flag.length > 1
+        ? arg === `--${flag}`
+        : new RegExp(`^-[a-z]*${flag}`).test(arg)));
 
-const isArgHelp = args.has('-h') || args.has('--help');
-const isArgAll = args.has('-a') || args.has('--all');
-const isArgJson = args.has('-j') || args.has('--json');
+const isArgHelp = checkArgsIncludes(['help', 'h']);
+const isArgAll = checkArgsIncludes(['all', 'a']);
+const isArgJson = checkArgsIncludes(['json', 'j']);
+const isArgSort = checkArgsIncludes(['date', 'd']);
 
 if (isArgHelp) {
     const cmd = `${dim('$')} ${green('nodever')}`;
@@ -20,8 +24,14 @@ if (isArgHelp) {
         '',
         `${cmd}                  ${dim('# table: every last major versions')}`,
         '',
+        `${cmd} -d               ${dim('# table: every last major versions')}`,
+        `${cmd} --date           ${dim('# table: every last major versions sorted by date')}`,
+        '',
         `${cmd} -a               ${dim('# table: all parsed versions')}`,
         `${cmd} --all            ${dim('# table: all parsed versions')}`,
+        '',
+        `${cmd} -a -d            ${dim('# table: all parsed versions sorted by date')}`,
+        `${cmd} --all --date     ${dim('# table: all parsed versions sorted by date')}`,
         '',
         `${cmd} -j               ${dim('# json: every last major versions')}`,
         `${cmd} --json           ${dim('# json: every last major versions')}`,
@@ -57,10 +67,19 @@ if (isArgJson) {
         'openssl',
     ].map(elem => dim(bold(elem)));
 
+    const dateToNum = date => Number(date.replaceAll('-', ''));
+
     const formattedVersions = [
         header,
         ...versions
             .reverse()
+            .sort((a, b) => {
+                if (isArgSort) {
+                    return dateToNum(a.date) - dateToNum(b.date);
+                }
+
+                return 0;
+            })
             .map(elem => [
                 green(elem.extra?.versionRaw || ''),
                 elem.date?.startsWith(currentYear) ? elem.date : dim(elem.date || ''),
