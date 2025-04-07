@@ -1,5 +1,3 @@
-import {requestCache} from '@k03mad/request';
-
 const NODE_VERSIONS_DIST = 'https://nodejs.org/dist/';
 const NODE_VERSIONS_INDEX = `${NODE_VERSIONS_DIST}index.json`;
 
@@ -25,8 +23,10 @@ const NODE_VERSIONS_INDEX = `${NODE_VERSIONS_DIST}index.json`;
  * @returns {Promise<Array<element>>}
  */
 export const getNodeJsAllVersions = async () => {
-    const {body} = await requestCache(NODE_VERSIONS_INDEX);
-    return body.map(elem => ({
+    const response = await fetch(NODE_VERSIONS_INDEX);
+    const json = await response.json();
+
+    return json.map(elem => ({
         ...elem,
         extra: {
             versionRaw: elem.version.replace('v', ''),

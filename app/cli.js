@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import {log} from '@k03mad/simple-log';
+
 import chalk from 'chalk';
 import {table} from 'table';
 
@@ -16,7 +16,7 @@ const isArgJson = args.has('-j') || args.has('--json');
 if (isArgHelp) {
     const cmd = `${dim('$')} ${green('nodever')}`;
 
-    log([
+    console.log([
         '',
         `${cmd}                  ${dim('# table: every last major versions')}`,
         '',
@@ -32,7 +32,7 @@ if (isArgHelp) {
         `${cmd} -h`,
         `${cmd} --help`,
         '',
-    ]);
+    ].join('\n'));
 
     process.exit(0);
 }
@@ -42,7 +42,7 @@ const versions = isArgAll
     : await api.getNodeJsMajorVersions();
 
 if (isArgJson) {
-    log(JSON.stringify(versions));
+    console.log(JSON.stringify(versions));
 } else {
     const currentYear = new Date().getFullYear();
 
@@ -74,5 +74,5 @@ if (isArgJson) {
         header,
     ];
 
-    log(table(formattedVersions));
+    console.log(table(formattedVersions));
 }
