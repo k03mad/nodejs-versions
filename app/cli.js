@@ -69,7 +69,7 @@ if (isArgJson) {
     const formattedVersions = [
         header,
         ...versions
-            .reverse()
+            .toReversed()
             .sort((a, b) => {
                 if (isArgSort) {
                     return dateToNum(a.date) - dateToNum(b.date);
