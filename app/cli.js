@@ -70,7 +70,7 @@ if (isArgJson) {
         header,
         ...versions
             .toReversed()
-            .sort((a, b) => {
+            .toSorted((a, b) => {
                 if (isArgSort) {
                     return dateToNum(a.date) - dateToNum(b.date);
                 }
