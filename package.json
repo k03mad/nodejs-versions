@@ -1,6 +1,6 @@
 {
   "name": "@k03mad/nodejs-versions",
-  "version": "6.0.1",
+  "version": "7.0.0",
   "description": "Get NodeJS versions",
   "maintainers": [
     "Kirill Molchanov <k03.mad@gmail.com"
@@ -23,7 +23,7 @@
     "table": "6.9.0"
   },
   "devDependencies": {
-    "@k03mad/eslint-config": "30.0.1",
+    "@k03mad/eslint-config": "31.0.0",
     "eslint": "9.39.2",
     "husky": "9.1.7"
   },
