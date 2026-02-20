@@ -34,10 +34,7 @@ npm i @k03mad/nodejs-versions
 ```
 
 ```js
-import {
-    getNodeJsAllVersions,
-    getNodeJsMajorVersions,
-} from '@k03mad/nodejs-versions';
+import {getNodeJsAllVersions, getNodeJsMajorVersions} from '@k03mad/nodejs-versions';
 
 const allVersions = await getNodeJsAllVersions();
 const majorVersions = await getNodeJsMajorVersions();
@@ -79,5 +76,4 @@ const majorVersions = await getNodeJsMajorVersions();
 //   },
 //   ...
 // ]
-
 ```

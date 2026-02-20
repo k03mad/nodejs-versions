@@ -44,8 +44,7 @@ export const getNodeJsMajorVersions = async () => {
     let currentMajor;
 
     return versions.filter(elem => {
-        const majorVersion = elem.version
-            .split('.')[0];
+        const majorVersion = elem.version.split('.')[0];
 
         if (currentMajor !== majorVersion) {
             currentMajor = majorVersion;

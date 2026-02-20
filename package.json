@@ -2,33 +2,34 @@
   "name": "@k03mad/nodejs-versions",
   "version": "10.0.0",
   "description": "Get NodeJS versions",
+  "license": "MIT",
   "maintainers": [
     "Kirill Molchanov <k03.mad@gmail.com"
   ],
-  "bin": {
-    "nodever": "app/cli.js"
-  },
-  "main": "app/api.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/k03mad/nodejs-versions.git"
   },
-  "license": "MIT",
+  "bin": {
+    "nodever": "app/cli.js"
+  },
   "type": "module",
-  "engines": {
-    "node": ">=24"
+  "main": "app/api.js",
+  "scripts": {
+    "lint": "oxlint --report-unused-disable-directives && oxfmt --check",
+    "prepare": "husky || true"
   },
   "dependencies": {
     "chalk": "5.6.2",
     "table": "6.9.0"
   },
   "devDependencies": {
-    "@k03mad/eslint-config": "34.1.0",
-    "eslint": "9.39.2",
-    "husky": "9.1.7"
+    "@k03mad/oxlint-config": "0.0.19",
+    "husky": "9.1.7",
+    "oxfmt": "0.34.0",
+    "oxlint": "1.49.0"
   },
-  "scripts": {
-    "lint": "eslint ./ --cache",
-    "prepare": "husky || true"
+  "engines": {
+    "node": ">=24"
   }
 }
