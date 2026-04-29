@@ -19,9 +19,7 @@ const NODE_VERSIONS_INDEX = `${NODE_VERSIONS_DIST}index.json`;
  * @property {string} extra.url
  */
 
-/**
- * @returns {Promise<Array<element>>}
- */
+/** @returns {Promise<element[]>} */
 export const getNodeJsAllVersions = async () => {
     const response = await fetch(NODE_VERSIONS_INDEX);
     const json = await response.json();
@@ -35,9 +33,7 @@ export const getNodeJsAllVersions = async () => {
     }));
 };
 
-/**
- * @returns {Promise<Array<element>>}
- */
+/** @returns {Promise<element[]>} */
 export const getNodeJsMajorVersions = async () => {
     const versions = await getNodeJsAllVersions();
 
