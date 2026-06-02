@@ -1,6 +1,6 @@
 {
   "name": "@k03mad/nodejs-versions",
-  "version": "10.8.0",
+  "version": "10.8.1",
   "description": "Get NodeJS versions",
   "license": "MIT",
   "maintainers": [
@@ -16,7 +16,7 @@
   "type": "module",
   "main": "app/api.js",
   "scripts": {
-    "lint": "oxlint && oxfmt --check",
+    "lint": "oxlint && oxfmt -c node_modules/@k03mad/oxlint-config/.oxfmtrc.json --check",
     "prepare": "husky || true"
   },
   "dependencies": {
@@ -24,7 +24,7 @@
     "table": "6.9.0"
   },
   "devDependencies": {
-    "@k03mad/oxlint-config": "0.9.1",
+    "@k03mad/oxlint-config": "0.9.3",
     "husky": "9.1.7",
     "oxfmt": "0.53.0",
     "oxlint": "1.68.0"
