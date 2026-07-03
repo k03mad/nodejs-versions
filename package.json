@@ -1,6 +1,6 @@
 {
   "name": "@k03mad/nodejs-versions",
-  "version": "10.10.0",
+  "version": "11.0.0",
   "description": "Get NodeJS versions",
   "license": "MIT",
   "maintainers": [
@@ -11,23 +11,26 @@
     "url": "git+https://github.com/k03mad/nodejs-versions.git"
   },
   "bin": {
-    "nodever": "app/cli.js"
+    "nodever": "cli.js"
   },
   "type": "module",
-  "main": "app/api.js",
   "scripts": {
-    "lint": "oxlint && oxfmt -c node_modules/@k03mad/oxlint-config/.oxfmtrc.json --check",
+    "lint": "oxlint && oxfmt -c node_modules/@k03mad/oxlint-config/.oxfmtrc.json --check && tsc --noEmit",
     "prepare": "husky || true"
   },
   "dependencies": {
     "chalk": "5.6.2",
-    "table": "6.9.0"
+    "table": "6.9.0",
+    "tsx": "4.23.0"
   },
   "devDependencies": {
     "@k03mad/oxlint-config": "0.11.0",
+    "@tsconfig/strictest": "2.0.8",
+    "@types/node": "26.1.0",
     "husky": "9.1.7",
     "oxfmt": "0.57.0",
-    "oxlint": "1.72.0"
+    "oxlint": "1.72.0",
+    "typescript": "6.0.3"
   },
   "engines": {
     "node": ">=24"
