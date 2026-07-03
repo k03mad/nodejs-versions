@@ -1,6 +1,6 @@
 {
   "name": "@k03mad/nodejs-versions",
-  "version": "10.9.0",
+  "version": "10.10.0",
   "description": "Get NodeJS versions",
   "license": "MIT",
   "maintainers": [
@@ -24,7 +24,7 @@
     "table": "6.9.0"
   },
   "devDependencies": {
-    "@k03mad/oxlint-config": "0.10.1",
+    "@k03mad/oxlint-config": "0.11.0",
     "husky": "9.1.7",
     "oxfmt": "0.57.0",
     "oxlint": "1.72.0"
