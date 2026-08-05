@@ -1,6 +1,6 @@
 {
   "name": "@k03mad/nodejs-versions",
-  "version": "12.0.0",
+  "version": "12.0.1",
   "description": "Get NodeJS versions",
   "license": "MIT",
   "maintainers": [
@@ -24,7 +24,7 @@
     "tsx": "4.23.8"
   },
   "devDependencies": {
-    "@k03mad/oxlint-config": "0.12.1",
+    "@k03mad/oxlint-config": "0.12.2",
     "@tsconfig/strictest": "2.0.8",
     "@types/node": "26.1.2",
     "husky": "9.1.7",
