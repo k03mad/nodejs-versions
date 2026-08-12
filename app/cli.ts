@@ -117,8 +117,11 @@ if (isArgHelp) {
 const versions = isArgAll ? await getNodeJsAllVersions() : await getNodeJsMajorVersions();
 const dateToNum = (date: string): number => Number(date.replaceAll('-', ''));
 
+const sortByDate = (a: NodeJsVersion, b: NodeJsVersion): number =>
+  dateToNum(a.date) - dateToNum(b.date);
+
 if (isArgJson) {
-  console.log(JSON.stringify(versions));
+  console.log(JSON.stringify(isArgSort ? versions.toSorted(sortByDate) : versions));
 } else {
   const currentYear = String(new Date().getFullYear());
 
@@ -130,13 +133,7 @@ if (isArgJson) {
     header,
     ...versions
       .toReversed()
-      .toSorted((a, b) => {
-        if (isArgSort) {
-          return dateToNum(a.date) - dateToNum(b.date);
-        }
-
-        return 0;
-      })
+      .toSorted((a, b) => (isArgSort ? sortByDate(a, b) : 0))
       .map(elem => [
         green(elem.extra?.versionRaw ?? ''),
         elem.date?.startsWith(currentYear) ? elem.date : dim(elem.date ?? ''),

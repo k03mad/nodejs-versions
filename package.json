@@ -1,10 +1,10 @@
 {
   "name": "@k03mad/nodejs-versions",
-  "version": "12.0.2",
+  "version": "12.0.3",
   "description": "Get NodeJS versions",
   "license": "MIT",
   "maintainers": [
-    "Kirill Molchanov <k03.mad@gmail.com"
+    "Kirill Molchanov <k03.mad@gmail.com>"
   ],
   "repository": {
     "type": "git",
