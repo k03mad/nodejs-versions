@@ -21,15 +21,15 @@
   "dependencies": {
     "chalk": "6.0.0",
     "table": "6.9.0",
-    "tsx": "4.23.8"
+    "tsx": "4.23.12"
   },
   "devDependencies": {
-    "@k03mad/oxlint-config": "0.12.2",
+    "@k03mad/oxlint-config": "0.12.3",
     "@tsconfig/strictest": "2.0.8",
-    "@types/node": "26.1.2",
+    "@types/node": "26.2.0",
     "husky": "9.1.7",
-    "oxfmt": "0.62.0",
-    "oxlint": "1.77.0",
+    "oxfmt": "0.63.0",
+    "oxlint": "1.78.0",
     "typescript": "7.0.2"
   },
   "engines": {
