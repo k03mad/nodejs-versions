@@ -32,7 +32,7 @@
   "devDependencies": {
     "@k03mad/oxlint-config": "0.12.3",
     "@tsconfig/strictest": "2.0.8",
-    "@types/node": "26.2.0",
+    "@types/node": "26.4.0",
     "husky": "9.1.7",
     "oxfmt": "0.63.0",
     "oxlint": "1.78.0",
