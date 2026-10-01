@@ -35,7 +35,7 @@
     "@types/node": "26.4.0",
     "husky": "9.1.7",
     "oxfmt": "0.68.0",
-    "oxlint": "1.83.0",
+    "oxlint": "1.86.0",
     "typescript": "7.0.2"
   },
   "engines": {
